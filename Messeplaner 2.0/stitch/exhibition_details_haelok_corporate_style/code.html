@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ISH 2026 - Detailed Exhibition Insight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeedf0",
+              "secondary": "#5d5e60",
+              "surface-container-highest": "#e3e2e4",
+              "tertiary-fixed-dim": "#93ccff",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-primary-fixed": "#410004",
+              "surface-bright": "#faf9fb",
+              "on-tertiary-fixed": "#001d31",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c1d",
+              "on-secondary-container": "#616365",
+              "error": "#ba1a1a",
+              "on-background": "#1a1c1d",
+              "on-tertiary-fixed-variant": "#004b73",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#005988",
+              "surface-variant": "#e3e2e4",
+              "on-tertiary-container": "#e4f0ff",
+              "on-primary": "#ffffff",
+              "primary-container": "#da0023",
+              "secondary-fixed": "#e3e2e4",
+              "inverse-on-surface": "#f1f0f2",
+              "tertiary-fixed": "#cce5ff",
+              "surface-container-high": "#e8e8ea",
+              "tertiary-container": "#0072ad",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-surface-variant": "#5e3f3d",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#ffeae8",
+              "surface-container-low": "#f4f3f5",
+              "inverse-surface": "#2f3032",
+              "surface-dim": "#dadadc",
+              "on-secondary-fixed": "#1a1c1d",
+              "background": "#faf9fb",
+              "on-error-container": "#93000a",
+              "secondary-container": "#e0dfe1",
+              "surface-tint": "#c0001d",
+              "outline-variant": "#e7bcb9",
+              "outline": "#926e6b",
+              "on-error": "#ffffff",
+              "primary-fixed": "#ffdad7",
+              "surface": "#faf9fb",
+              "on-secondary-fixed-variant": "#454749",
+              "primary": "#ac0019",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .asymmetric-border {
+            border-left: 4px solid #da0023;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f4f3f5;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e3e2e4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm dark:shadow-none font-manrope antialiased">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#da0023]">Messeplaner</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 transition-colors duration-200 px-3 py-1" href="#">Dashboard</a>
+<a class="text-[#da0023] font-bold border-b-2 border-[#da0023] px-3 py-1" href="#">Exhibitions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 transition-colors duration-200 px-3 py-1" href="#">Calendar</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-600 hover:bg-slate-50 p-2 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-slate-600 hover:bg-slate-50 p-2 rounded-full transition-colors">settings</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" data-alt="professional headshot of a corporate executive in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEx2CzNvdlCi6gMK0sfW57KPikQFl-fYwqxeYAXO9bFobiFZpNXOPtLXH7ldSzBRKjYMDafP64FAb3s7EOVr1NJPt1Ph5JsnpygjsgT-pVBo7RZn5vQhjGrbRJ18LUJvR-1lQZWx-sFhBkI3Jux74ATFeZYpXGPL92IVw-7PiyRkAN6cZMiiivOV7U6ppCOYz5rN2IShAruD7Fr0A6xjBlenHpbEN0502pmc1QaY_0LU2IsWFzOCjZo0P7rAX-mhWGVlq7V_VsLlY"/>
+</div>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0"></div>
+</nav>
+<!-- Side Navigation Shell (Desktop) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full flex-col pt-20 pb-6 px-4 h-screen w-64 bg-slate-50 dark:bg-slate-950 font-manrope font-medium text-sm">
+<div class="mb-8 px-4">
+<h2 class="font-bold text-slate-900 dark:text-white text-lg">Exhibition Suite</h2>
+<p class="text-slate-500 text-xs uppercase tracking-widest">Enterprise Planning</p>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#da0023] bg-white dark:bg-slate-900 rounded-lg shadow-sm font-semibold relative after:content-[''] after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#da0023] after:rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span>Exhibitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Calendar</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Resources</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+</div>
+<div class="border-t border-slate-200 pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-900" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 pt-16 min-h-screen bg-background">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Hero Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-4">
+<span class="hover:text-primary cursor-pointer">Exhibitions</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface">ISH 2026</span>
+</nav>
+<h1 class="text-5xl font-extrabold tracking-tight text-on-surface">ISH Frankfurt 2026</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">The world's leading trade fair for HVAC + Water. High-impact presence focusing on sustainable energy systems and smart water management.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-white border border-outline-variant text-on-surface font-semibold rounded-lg hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">share</span> Export PDF
+                    </button>
+<button class="px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg hover:shadow-lg transition-all flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit</span> Edit Planning
+                    </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Investment Breakdown (Budget vs Actual) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-8 overflow-hidden relative">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-2xl font-bold tracking-tight">Investment Overview</h3>
+<p class="text-on-surface-variant text-sm">Real-time budget tracking vs performance</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Total Status</span>
+<p class="text-primary-container font-black text-2xl">On Track</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<span class="text-xs font-bold text-secondary uppercase tracking-wider block mb-1">Budgeted</span>
+<span class="text-3xl font-black text-on-surface">€450,000</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<span class="text-xs font-bold text-secondary uppercase tracking-wider block mb-1">Actual spent</span>
+<span class="text-3xl font-black text-on-surface">€312,450</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border-b-4 border-primary-container">
+<span class="text-xs font-bold text-secondary uppercase tracking-wider block mb-1">Remaining</span>
+<span class="text-3xl font-black text-primary-container">€137,550</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-bold">Overall Utilization</span>
+<span class="text-sm font-black">69.4%</span>
+</div>
+<div class="w-full h-4 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 69.4%"></div>
+</div>
+</div>
+</section>
+<!-- Stand Details -->
+<section class="col-span-12 lg:col-span-4 bg-surface-container-lowest border border-surface-container-high rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-bold mb-6">Stand Details</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">location_on</span>
+<div>
+<p class="text-xs font-bold text-secondary uppercase tracking-wider">Hall &amp; Space</p>
+<p class="text-lg font-bold">Hall 12.1, Stand C45</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">square_foot</span>
+<div>
+<p class="text-xs font-bold text-secondary uppercase tracking-wider">Total Area</p>
+<p class="text-lg font-bold">240 m²</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container">layers</span>
+<div>
+<p class="text-xs font-bold text-secondary uppercase tracking-wider">Type</p>
+<p class="text-lg font-bold">Island Stand (4 sides open)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-high">
+<p class="text-sm font-medium text-on-surface-variant italic leading-snug">"Sustainable Architecture Concept: Reusable modular wood structures with integrated LED walls."</p>
+</div>
+</section>
+<!-- Execution Roadmap -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-8">
+<h3 class="text-2xl font-bold mb-8">Execution Roadmap</h3>
+<div class="relative">
+<!-- Vertical Progress Line -->
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<div class="space-y-8 relative">
+<!-- Roadmap Item 1 -->
+<div class="flex gap-8 group">
+<div class="relative z-10 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-lg asymmetric-border shadow-sm group-hover:translate-x-1 transition-transform">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-lg">Initial Concept &amp; Stand Design</h4>
+<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded font-bold">COMPLETED</span>
+</div>
+<p class="text-on-surface-variant text-sm">Approval of the modular architecture and spatial layout by the board.</p>
+<div class="mt-4 flex -space-x-2">
+<img alt="team member" class="w-8 h-8 rounded-full border-2 border-white" data-alt="portrait of a young designer with glasses in a creative office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9pNJ4Ga7ksRdDbOm1NJfDL4gtKGd50EyqOeZAuMN1AkwXXNmoN4WUlCys8Mry0gj-RHqMLC18oZ36H5btLxyzI2bo3Retk8C4kearrR4qmNHIrPSuyOM7ndLjFoePQR8asUaLGFgt5Iv-v-vmGmvoE37M9Do6eQy565WR1d-xqhDcavIJ5pkugjYZ1Ydc0BAXXrUpR7v_xhLHB5EfdejvjubIWWqn3FElcVCnWjjmFNRSDhUZWXOyIkNBDD52g89Z3e8hz6wLKWM"/>
+<img alt="team member" class="w-8 h-8 rounded-full border-2 border-white" data-alt="professional woman in business attire smiling confidently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxwqJJvkCMQPEUr_qqOn7FOKLlbeIaG3H58hir_3OcSJT4Y8O0eRwLK_oNj4BpIP6hEo7VpcBj51_vFU66wq8etWGagX9fQ4IweUREzY41DqN-u2h5KLFj6bSRncCHxp00MLabdOUqDIPQAXeQFqooMeVwKcBtxDu7_WgM04JiLj501b7edRr0p-344hwbefyForZmmV3kRdQzQmQvIq8DFTeT9W4h8Jua1VrwSwU8Kz_5zwcrKkKpFCI1D2ihiSLIDNYGzrIZie4"/>
+</div>
+</div>
+</div>
+<!-- Roadmap Item 2 -->
+<div class="flex gap-8 group">
+<div class="relative z-10 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-lg asymmetric-border shadow-sm group-hover:translate-x-1 transition-transform">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-lg">Detailed Technical Specs</h4>
+<span class="text-xs bg-primary/10 text-primary-container px-2 py-1 rounded font-bold uppercase">In Progress</span>
+</div>
+<p class="text-on-surface-variant text-sm">Drafting of electrical, water connections, and static reports for hanging structures.</p>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full" style="width: 45%"></div>
+</div>
+<span class="text-xs font-black">45%</span>
+</div>
+</div>
+</div>
+<!-- Roadmap Item 3 -->
+<div class="flex gap-8 group opacity-60">
+<div class="relative z-10 w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-surface-container-high group-hover:translate-x-1 transition-transform">
+<h4 class="font-bold text-lg mb-1">Logistics &amp; Catering Finalization</h4>
+<p class="text-on-surface-variant text-sm">Due: Oct 15, 2025</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Asset Library -->
+<section class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest border border-surface-container-high rounded-xl p-8 h-full">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold">Key Assets</h3>
+<button class="text-primary-container font-bold text-sm hover:underline">View All</button>
+</div>
+<div class="space-y-4 custom-scrollbar overflow-y-auto max-h-[500px] pr-2">
+<!-- Asset Card 1 -->
+<div class="p-4 rounded-lg bg-surface-container-low group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold truncate">Floorplan_V4_Final.dwg</p>
+<p class="text-xs text-on-surface-variant">24.5 MB • Updated 2 days ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="p-4 rounded-lg bg-surface-container-low group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded bg-white overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="3D render of a modern minimalist exhibition stand with wood accents and large screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwtNisuOlr0LHEn9DD99SyNDxSyfc2pEAxkguzxjLttTWfWRFS9lolYIbwwYlDTFZMYReatHm6a_8lBZK1rWesr8kj77kVChP1Oop1HLIdemqHFYTIviTYZZ0LUcVPbZBrEIqDlDkAevFurjvnDgZBQrLMWLnIppQjSlo63rvv8Us1JQxtGNB3KwS_6ISGDqEdeH_GMtxAjRp2LFl7n0JLx5oglTqc-60PVkG1a37pxUvaIUIDmQVoKPg_42CtNX9YEHm5TzYgC-E"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold truncate">Stand_Render_3D.jpg</p>
+<p class="text-xs text-on-surface-variant">4.2 MB • Updated 1 week ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Asset Card 3 -->
+<div class="p-4 rounded-lg bg-surface-container-low group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-blue-600">table_chart</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-bold truncate">Exhibitor_Inventory.xlsx</p>
+<p class="text-xs text-on-surface-variant">1.1 MB • Updated 3 weeks ago</p>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+</div>
+<div class="mt-8 border-2 border-dashed border-surface-container-highest rounded-lg p-6 text-center group cursor-pointer hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2 text-3xl">upload_file</span>
+<p class="text-sm font-bold">Drag &amp; drop files to upload</p>
+<p class="text-xs text-on-surface-variant">Max size 100MB per file</p>
+</div>
+</div>
+</section>
+<!-- Project Team (Footer section of canvas) -->
+<section class="col-span-12 mt-6">
+<div class="bg-gradient-to-r from-secondary to-on-surface-variant text-on-primary rounded-xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<div class="relative z-10 max-w-xl">
+<h3 class="text-3xl font-bold mb-4">Strategic Team</h3>
+<p class="text-surface-container-highest opacity-90 text-lg leading-relaxed">Dedicated exhibition specialists coordinating every aspect of the ISH 2026 presence. Connect with the lead planners for urgent adjustments.</p>
+</div>
+<div class="flex -space-x-4 relative z-10 scale-125 md:scale-150 mr-8">
+<img class="w-12 h-12 rounded-full border-4 border-on-surface-variant" data-alt="professional headshot of a female creative director looking into camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADGMVtH-cTqzJJezsEjDs_DLCQ56CF8Vvy0h6TjEQPFhLuQiFuajzGCbPj1BX6IPqdO_R8OkA6nuiBtZwtMlNBKnYxyUgTk3SAiST992hF6BPOhE8znB4FZ9BKM5RpE_aGQM2t2aFiubPgl7tL82d8CRQlF58RL20txFi4n1ufAGJcABpaGdWRkBanc8mBY9iA93KBLacAowtw4Hnbg7zP0XBCMvuYGXhLoNCAbUZngj_WYnFrIeu_hySrGoxeMULqH7pMTr-KrLQ"/>
+<img class="w-12 h-12 rounded-full border-4 border-on-surface-variant" data-alt="portrait of a male project manager with a friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNP_Gb6pIAw93hbC5Kq2JQtsdz99GFr52FV8fGKU60Ywk_mIt7BUEJHmKy0vOOKh0QOca3D8gAnwq6yAB3WRYNN7-95Iuf4ebI9IJ6jjCM6S8QUJdOS62yN2NV4fxRwJo5nvXC2vuDH8H2vMTUxjuAhZj0M4yuJw13BgFb3NbZ2u0luimOd_6neugRt3GojmN05cspG7dEx3gX4VT5Zzy96UlCKWbZy0kgFPMIfLRGcJ6Dq4Jh3-Souomtq8aYjM66GR5apusQyF0"/>
+<img class="w-12 h-12 rounded-full border-4 border-on-surface-variant" data-alt="headshot of a mature businessman with graying hair and professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN33vmFBGNMRjBgeD4zr1UTy9xJKoatNumYxhwLgC5et2_rkJDIDMSC8IaPNuvjadKECSWX5v-jyeZvXuKk-GvVpx4psqzlVphiZtwAA--0wQwnmJkWPhmLVYt5TC_cO7zGBWo4gkXs1-E3n-zCAdbOc7Go_l7bUEWbli5VXxZievg8E4l6MLv2VHx0dnUr-Kb-iTrg9cJj9ywzZIMmoN5ZE9GaD1HWr5n6nyGPSoj7001xaOhI_ktJtdbtD9FwPzCL-dHBA3XwY8"/>
+<div class="w-12 h-12 rounded-full border-4 border-on-surface-variant bg-primary-container flex items-center justify-center font-bold text-sm">+8</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 w-full bg-white border-t border-surface-container z-50 px-6 py-3 flex justify-between items-center shadow-lg">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_seat</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Exhib</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Cal</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</div>
+</body></html>

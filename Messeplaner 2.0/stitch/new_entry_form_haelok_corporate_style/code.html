@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Messeplaner - New Exhibition Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#eeedf0",
+                        "secondary": "#5d5e60",
+                        "surface-container-highest": "#e3e2e4",
+                        "tertiary-fixed-dim": "#93ccff",
+                        "secondary-fixed-dim": "#c6c6c8",
+                        "on-primary-fixed": "#410004",
+                        "surface-bright": "#faf9fb",
+                        "on-tertiary-fixed": "#001d31",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1a1c1d",
+                        "on-secondary-container": "#616365",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1d",
+                        "on-tertiary-fixed-variant": "#004b73",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#005988",
+                        "surface-variant": "#e3e2e4",
+                        "on-tertiary-container": "#e4f0ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#da0023",
+                        "secondary-fixed": "#e3e2e4",
+                        "inverse-on-surface": "#f1f0f2",
+                        "tertiary-fixed": "#cce5ff",
+                        "surface-container-high": "#e8e8ea",
+                        "tertiary-container": "#0072ad",
+                        "on-primary-fixed-variant": "#930014",
+                        "inverse-primary": "#ffb3ae",
+                        "on-surface-variant": "#5e3f3d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#ffeae8",
+                        "surface-container-low": "#f4f3f5",
+                        "inverse-surface": "#2f3032",
+                        "surface-dim": "#dadadc",
+                        "on-secondary-fixed": "#1a1c1d",
+                        "background": "#faf9fb",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#e0dfe1",
+                        "surface-tint": "#c0001d",
+                        "outline-variant": "#e7bcb9",
+                        "outline": "#926e6b",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdad7",
+                        "surface": "#faf9fb",
+                        "on-secondary-fixed-variant": "#454749",
+                        "primary": "#ac0019",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#ffb3ae"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none font-manrope antialiased">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#da0023]">Messeplaner</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#da0023] font-bold border-b-2 border-[#da0023] py-5" href="#">Exhibitions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200 py-5" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200 py-5" href="#">Calendar</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-secondary hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden ml-2">
+<img alt="User Profile" data-alt="professional portrait of a project manager in a clean corporate environment with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvtGBETIqGRB8qcL-OKfcogwHS70TfIQy7h3niVVc-HmK9IcXpfNEEjLBCbX0AK6eoP1EiZK3qHXZJgoYMsMcrENbQoCdiwXujkmhIX8cnJgXLVujDiSBKZPL0FwBUdbmRJgNfgDMGre_0JvFp1B-inoD9zAmOVv5kIbp9zh15yCsQuXGsEqmfizlpZokux-7v8T94Nj53cIyTpkFeHoXnVGqjiqv87GBTVFiUBfpt42PO4rOOXkYPsTrOfutTSpnmQnQR4ttijV0"/>
+</div>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0"></div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 border-r border-slate-200 dark:border-slate-800 flex-col pt-20 pb-6 px-4 bg-slate-50 dark:bg-slate-950 font-manrope font-medium text-sm">
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#da0023] bg-white dark:bg-slate-900 rounded-lg shadow-sm font-semibold relative after:content-[''] after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#da0023] after:rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+                Exhibitions
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                Calendar
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Resources
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Reports
+            </a>
+</div>
+<div class="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:pl-64 pt-16 min-h-screen">
+<div class="max-w-6xl mx-auto px-8 py-12">
+<!-- Breadcrumbs & Header -->
+<div class="mb-12">
+<nav class="flex gap-2 text-xs font-bold text-secondary uppercase tracking-widest mb-4">
+<span>Exhibitions</span>
+<span>/</span>
+<span class="text-primary-container">New Entry</span>
+</nav>
+<h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight leading-none mb-2">Create New Exhibition</h1>
+<p class="text-on-surface-variant max-w-2xl">Register a new trade fair appearance. Define your core event details, financial projections, and management team in a single architectural workflow.</p>
+</div>
+<!-- Form Content -->
+<form class="grid grid-cols-12 gap-8">
+<!-- Section 1: Core Information -->
+<section class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+<h2 class="text-xl font-headline font-bold">Core Exhibition Info</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-2">
+<label class="block text-xs font-bold text-secondary mb-2">EVENT NAME</label>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 px-4 text-on-surface shadow-sm" placeholder="e.g. Hannover Messe 2024" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">LOCATION / VENUE</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-secondary text-lg" data-icon="location_on">location_on</span>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 pl-12 pr-4 text-on-surface shadow-sm" placeholder="City, Country" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">INDUSTRY SECTOR</label>
+<select class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 px-4 text-on-surface shadow-sm appearance-none">
+<option>Industrial Automation</option>
+<option>Logistics &amp; Supply Chain</option>
+<option>Energy Solutions</option>
+<option>Digital Ecosystems</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">START DATE</label>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 px-4 text-on-surface shadow-sm" type="date"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">END DATE</label>
+<input class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 px-4 text-on-surface shadow-sm" type="date"/>
+</div>
+</div>
+</div>
+<!-- Section 2: Assets & Narrative -->
+<div class="bg-surface-container-low rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-8">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+<h2 class="text-xl font-headline font-bold">Marketing &amp; Assets</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">EXHIBITION OBJECTIVES</label>
+<textarea class="w-full bg-surface-container-lowest border-none focus:ring-2 focus:ring-primary/20 rounded-md py-4 px-4 text-on-surface shadow-sm" placeholder="Describe the primary goals for this event..." rows="4"></textarea>
+</div>
+<div class="border-2 border-dashed border-outline-variant/30 rounded-xl p-12 text-center bg-surface-container-lowest/50">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-sm font-medium text-on-surface">Drag &amp; drop exhibition floorplans or brand guidelines</p>
+<p class="text-xs text-secondary mt-1">PDF, JPG, or PNG up to 20MB</p>
+<button class="mt-6 px-6 py-2 bg-white border border-secondary-container text-on-surface text-sm font-bold rounded hover:bg-surface-container transition-colors" type="button">Select Files</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Sections: Finance & Management -->
+<aside class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Financial Estimates -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-surface-container-high">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary-container" data-icon="payments">payments</span>
+<h2 class="text-lg font-headline font-bold">Financial Estimates</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">TOTAL BUDGET (EUR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-secondary">€</span>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-md py-3 pl-8 pr-4 text-on-surface font-mono" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">ESTIMATED ROI (%)</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 rounded-md py-3 px-4 text-on-surface font-mono" placeholder="15" type="number"/>
+</div>
+<div class="pt-4 space-y-3">
+<div class="flex justify-between text-xs font-bold text-secondary">
+<span>ALLOCATED COST</span>
+<span>65%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[65%]"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant leading-relaxed italic">Based on historical data for similar exhibitions in the Industrial sector.</p>
+</div>
+</div>
+</div>
+<!-- Management Status -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-surface-container-high">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary" data-icon="supervised_user_circle">supervised_user_circle</span>
+<h2 class="text-lg font-headline font-bold">Management</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">LEAD MANAGER</label>
+<div class="flex items-center gap-3 bg-surface-container-low p-3 rounded-lg">
+<img alt="Manager" class="w-8 h-8 rounded-full" data-alt="professional male project lead with a confident expression in a modern office space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUODMIcY8zFQ9psR_ORxOcX-3f8-GpyOo0ltSKHIDOp3wQLZ-MSdmiCkU8ieYJa4x8ostqKXaTiXjfo_f9XOBIZPqvrhb4c0Q-G7YAsCKiM2W5xzhtG5nZpumJUOZ7Hc5HBtCh8tN87GE9f8jLLAdeNDhnr8npxhy0hbrJSFM9RjzphJfkrtsiltcWa9--8xvgW4Fj80Rp4FnH9Mgu7ctkNcBjpFRb6k7favOh2bYmkuw0ttZcM-k1V-SxNOZMx-ijk2V5Mo-6lUM"/>
+<div>
+<p class="text-sm font-bold">Marcus Haelok</p>
+<p class="text-[10px] text-secondary">Global Events Lead</p>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-secondary mb-2">ENTRY STATUS</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="px-3 py-2 text-[10px] font-bold rounded border border-primary-container text-primary-container bg-primary-container/5 uppercase tracking-tighter" type="button">Draft</button>
+<button class="px-3 py-2 text-[10px] font-bold rounded border border-surface-container-high text-secondary hover:bg-surface-container transition-colors uppercase tracking-tighter" type="button">Review</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Callout (The Editorial Element) -->
+<div class="relative overflow-hidden rounded-xl h-48 group">
+<img alt="Exhibition Hall" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="wide shot of a futuristic exhibition hall with glowing light panels and sleek architectural design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANGfYqweciL1Eik4uwIFZG5JRe5E7IS7o4nsFGWHEHQ9qz6dQsmFEZzuSjd1iEqFm1Nnl7e_eS82kKEnGEhFYCGoBqin8KTu7y3ji16kAzLfPBDzjR4voZCFvmlHjIbseF2giL1MLpQWCpCD82ERbOR1o673enoYVGa62hc42z3LClRk60sH2e1iUyTaCZJb7_N6coaa-yZ1kDCzqBA6jQTKoL3-syq6ZhjSOjweL4_CqG_U3c0_mBT_ndvdGOC-80-xBuMsn68-4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+<p class="text-white text-sm font-bold">Industrial Excellence</p>
+<p class="text-white/70 text-xs">Transforming spaces into experiences.</p>
+</div>
+</div>
+</aside>
+<!-- Form Actions -->
+<div class="col-span-12 flex justify-between items-center py-8 border-t border-surface-container-high mt-8">
+<button class="text-primary font-bold hover:bg-surface-container px-6 py-3 rounded-md transition-all" type="button">
+                        Discard Draft
+                    </button>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-on-secondary-container font-bold px-8 py-3 rounded-md hover:brightness-95 transition-all" type="button">
+                            Save Progress
+                        </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-12 py-3 rounded-md shadow-lg shadow-primary-container/20 active:scale-95 transition-all" type="submit">
+                            Confirm Exhibition Entry
+                        </button>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Support Floating Button -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="w-14 h-14 bg-surface-container-lowest shadow-xl border border-surface-container rounded-full flex items-center justify-center text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+</button>
+</div>
+</body></html>

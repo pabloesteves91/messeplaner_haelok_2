@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Messeplaner - Mission Control</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeedf0",
+              "secondary": "#5d5e60",
+              "surface-container-highest": "#e3e2e4",
+              "tertiary-fixed-dim": "#93ccff",
+              "secondary-fixed-dim": "#c6c6c8",
+              "on-primary-fixed": "#410004",
+              "surface-bright": "#faf9fb",
+              "on-tertiary-fixed": "#001d31",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c1d",
+              "on-secondary-container": "#616365",
+              "error": "#ba1a1a",
+              "on-background": "#1a1c1d",
+              "on-tertiary-fixed-variant": "#004b73",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#005988",
+              "surface-variant": "#e3e2e4",
+              "on-tertiary-container": "#e4f0ff",
+              "on-primary": "#ffffff",
+              "primary-container": "#da0023",
+              "secondary-fixed": "#e3e2e4",
+              "inverse-on-surface": "#f1f0f2",
+              "tertiary-fixed": "#cce5ff",
+              "surface-container-high": "#e8e8ea",
+              "tertiary-container": "#0072ad",
+              "on-primary-fixed-variant": "#930014",
+              "inverse-primary": "#ffb3ae",
+              "on-surface-variant": "#5e3f3d",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#ffeae8",
+              "surface-container-low": "#f4f3f5",
+              "inverse-surface": "#2f3032",
+              "surface-dim": "#dadadc",
+              "on-secondary-fixed": "#1a1c1d",
+              "background": "#faf9fb",
+              "on-error-container": "#93000a",
+              "secondary-container": "#e0dfe1",
+              "surface-tint": "#c0001d",
+              "outline-variant": "#e7bcb9",
+              "outline": "#926e6b",
+              "on-error": "#ffffff",
+              "primary-fixed": "#ffdad7",
+              "surface": "#faf9fb",
+              "on-secondary-fixed-variant": "#454749",
+              "primary": "#ac0019",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#ffb3ae"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 24px 48px -12px rgba(26, 28, 29, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm dark:shadow-none font-manrope antialiased">
+<div class="flex justify-between items-center px-6 h-16 w-full relative">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#da0023]">Messeplaner</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#da0023] font-bold border-b-2 border-[#da0023] py-5" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200 px-3 py-1 rounded" href="#">Exhibitions</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200 px-3 py-1 rounded" href="#">Calendar</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 w-64" placeholder="Search mission..." type="text"/>
+</div>
+<button class="p-2 text-secondary hover:bg-slate-50 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-slate-50 rounded-full transition-transform active:scale-95">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" data-alt="professional headshot of a confident executive in a tailored suit against a soft grey corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIvpAr8NJX00oEWfKfVXSe0Nz50hzm72jcdgCs6e1oNnOC387BMZdro7dHom_2bpDz5uOYlB2-Sq6P3Ih6l_JNaHGMqWe6djpaM5NLDrKLprQPDCLhNBxCCpDZB_rgbq_tV-PGDusQDjf3du_I1FJM1mUcDqnE3TzauCVYxqfkoNVM-9cUwbgllNApK5UCBP3VMN22bDh3SxcZTZh0pRvNT3It2MnFr8dK_HpQuGftFsXptfq2u8ocXLveyVPaqeplCUmD_ojSClg"/>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col pt-20 pb-6 px-4 h-screen w-64 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 z-40 hidden lg:flex">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-white font-bold text-xl">H</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white leading-tight">Exhibition Suite</p>
+<p class="text-xs text-slate-500">Enterprise Planning</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#da0023] bg-white dark:bg-slate-900 rounded-lg shadow-sm font-semibold relative after:content-[''] after:absolute after:left-0 after:w-1 after:h-6 after:bg-[#da0023] after:rounded-r-full hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">event_seat</span>
+<span>Exhibitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>Calendar</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Resources</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:bg-slate-200/50 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 px-6 pb-12">
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-1 h-6 bg-primary-container"></span>
+<span class="text-sm font-bold uppercase tracking-widest text-secondary">Mission Control</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface">Overview</h1>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-white border border-outline-variant/20 rounded-lg font-bold text-on-surface hover:bg-surface-container-low transition-colors active:scale-95">
+                    Export Report
+                </button>
+<button class="px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity active:scale-95">
+                    New Exhibition
+                </button>
+</div>
+</header>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-6">
+<!-- Hero Metric: Budget Status -->
+<div class="md:col-span-4 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 editorial-shadow relative overflow-hidden group">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="text-lg font-bold text-secondary mb-1">Global Budget Utilization</h3>
+<p class="text-4xl font-black text-on-surface">€1,420,500.00</p>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800">
+<span class="material-symbols-outlined text-xs mr-1">trending_up</span> 12% vs LY
+                            </span>
+</div>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between text-sm font-bold mb-2">
+<span>Allocated Expenditure</span>
+<span>84%</span>
+</div>
+<div class="h-4 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[84%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<!-- Stats Stack -->
+<div class="md:col-span-4 lg:col-span-4 grid grid-rows-2 gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow flex flex-col justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<span class="font-bold text-secondary">Active Exhibitions</span>
+</div>
+<div class="text-5xl font-black mt-4">12</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 editorial-shadow flex flex-col justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<span class="font-bold text-secondary">Pending Tasks</span>
+</div>
+<div class="text-5xl font-black mt-4">48</div>
+</div>
+</div>
+<!-- Main Planning Table / Upcoming Events -->
+<div class="md:col-span-4 lg:col-span-9 bg-surface-container-lowest rounded-xl editorial-shadow overflow-hidden">
+<div class="p-6 border-b border-surface-container-low flex justify-between items-center">
+<h3 class="text-xl font-bold">Upcoming Exhibitions</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/50 text-secondary text-xs uppercase tracking-widest font-bold">
+<th class="px-6 py-4">Exhibition</th>
+<th class="px-6 py-4">Location</th>
+<th class="px-6 py-4">Timeline</th>
+<th class="px-6 py-4">Budget</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/30 transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Tech Expo" data-alt="ultra modern minimalist office architecture with large windows and clean concrete lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLKn4RtANL9IpktQ36WIXMpfv8ygAe3AbYmDSJ-cEWclCbea3z_b9-iFIfnlEee6IUCOzpGrVYDmR_q6CU7MMYeE6PDuc9LrcwAEWsbxhqdP-0RJcRyhrvyu_7UoCOnJPtsDYCe1OIpgsXrfB3FnMk3GInuTQ0kLDy1-IP1WOxfsX4ccnhupbtdZKz1j3m1fzzqpUgt9y636dNbd13gnAN-_1bOgRpgXNloHGo0y5tipFHWkJ7LDLoNYT7AZItrhWltdWwUTcvLuY"/>
+</div>
+<span class="font-bold">TechForward 2024</span>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface-variant font-medium">Berlin, DE</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">Oct 12-15</div>
+<div class="text-xs text-on-surface-variant">42 days remaining</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">€450k</div>
+<div class="w-16 h-1.5 bg-surface-container rounded-full mt-1">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded">In Planning</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Auto Summit" data-alt="interior view of a massive modern convention center with high ceilings and glass structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnrrCKpMUrEKlMN0piaWSxHt_CkS8lfYLYHNhXQoovALIx1BCyHMOEwNnnA0NFnLaO1Rqqmw3ifoD9gm-1O1eFHhClfT1J-4XFbFiZg0R6ch4m8ckXwGlVksqSe0FvjRvy425lIGiagZKgWNXFZugsjUX35yQeoTpboa5VjPVVYEBj4XWcuSg9qJjGbqokQ82vWVU0PKg4A9frGdNh5TpxTGhBOrc-tesAY8lHNXHuacKTj0sXNIK36wVSwG7irZhcZc9MVVEmcOk"/>
+</div>
+<span class="font-bold">Auto Summit Expo</span>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface-variant font-medium">Munich, DE</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">Nov 05-08</div>
+<div class="text-xs text-on-surface-variant">64 days remaining</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">€820k</div>
+<div class="w-16 h-1.5 bg-surface-container rounded-full mt-1">
+<div class="w-1/4 h-full bg-primary rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-orange-50 text-orange-700 text-xs font-bold rounded">Approvals</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors cursor-pointer group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Global Trade" data-alt="wide angle shot of a vibrant trade show floor with elegant booths and soft overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAhYds9ma1DhpjD_ElG9KuJxDDyGlb94Mq6E_q27XBeZ7iuP4ez3a2g4sOKLeakFfqO1y1fK7KNA7vJXV1XrzCuu26B0MrePWT-c-duX4A6EB9LGBUesCzo43b_hRBjeQs1-RBB7Dt6NuuIFLjz6zTkKxSOuHRZ4OlY5EIvMukiOkT_GTHSbcDswTAOuvYpkH2nR-jZMa5iSR9vt6awTC9yd6KrJoYY-IsYH_8rK9gy_K_QYI0Xsl_bknmkOpMQampHi7L-Fhuoak"/>
+</div>
+<span class="font-bold">Global Trade Forum</span>
+</div>
+</td>
+<td class="px-6 py-5 text-on-surface-variant font-medium">London, UK</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">Jan 20-24</div>
+<div class="text-xs text-on-surface-variant">140 days remaining</div>
+</td>
+<td class="px-6 py-5">
+<div class="text-sm font-bold">€1.2M</div>
+<div class="w-16 h-1.5 bg-surface-container rounded-full mt-1">
+<div class="w-1/2 h-full bg-primary rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded">Draft</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Team Feed / Recent Activity -->
+<div class="md:col-span-4 lg:col-span-3 bg-surface-container-lowest rounded-xl editorial-shadow p-6">
+<h3 class="text-xl font-bold mb-6">Team Activity</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden shrink-0">
+<img alt="Marcus" data-alt="portrait of a professional man with glasses smiling in a modern bright environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfh1Ymsi14X8_Nybb8nt4sLnCAtsivrHXOS8qzCVgDpovt4dh8FqdpYDt6GE-PhK5ncsiX4nkK-eQUavlGOVxW54TA94RVW8SYxoEQ7ACWAyVvDjZoUssELXCreM9uckLjsEmcvP_MzybywTntFFX4pGgEuCGMxwIhnwoQciXw9qnYTgOYnvat33gHZchfokvBek4-gGySqPQFqcy1wNh6PH8DTN82JY6oJJuMtehBxEipvIc9wvcMu9Z2jhnc8SNMMViuSRQvx54"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-primary">add_circle</span>
+</div>
+</div>
+<div class="text-sm">
+<p class="font-bold text-on-surface">Marcus Weber</p>
+<p class="text-on-surface-variant">Uploaded 4 new stand designs for <span class="text-primary font-medium">TechForward</span></p>
+<span class="text-[10px] uppercase font-bold text-secondary-fixed-dim mt-1 block">12 mins ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden shrink-0">
+<img alt="Sarah" data-alt="headshot of a female creative professional in a bright studio with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiHh-bOV3zI5T_NCjfO2ZrYpf4Z0wN2J0RwIzE6tgChTOH_hR4mfPo8PUpaGVCCzpGy5vAwGCoHxxVCnqIVeIIennMGHeJbzIEV21klbkT1cFG7FLUDL6yUyyy-QNyvPGAxh0GM17q0lGbLHq2n55_DTQ8GeZqPkRsN3PkK2eWWNruCm77Rgnwvaz6luH9i7b5ZqCVIeRiYVD3E2Yi-Bss6YOYN-PkCTZlbIQMD6wLTUVuLuoeuqnBW0QZ5jc_V_lqjAqHZzsSc6c"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-tertiary">check_circle</span>
+</div>
+</div>
+<div class="text-sm">
+<p class="font-bold text-on-surface">Sarah Connor</p>
+<p class="text-on-surface-variant">Approved the catering budget for <span class="text-primary font-medium">Auto Summit</span></p>
+<span class="text-[10px] uppercase font-bold text-secondary-fixed-dim mt-1 block">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden shrink-0">
+<img alt="David" data-alt="professional portrait of a man in a business casual outfit against a clean blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTi745QcpOCfGeNrr2oOZUWroVoiW3X9vr7oJB5bnvog4gGcK1Xh-ksAP8xkUi0VrH1MeFEGdDaWGktrJ8DuRYWWH_kXHLlEsuTykTiUYzPprfMu14XTJNV3BCaEb7idAq2sIClXjAhWDDA9XC3qM_OiYmoVPlsZc0Qsuca35gFLF9sXVEBbbXmrTuc6Ww8qw9ne7lKes-DZIjPuRMBqQ8QXGv5izTntpT62GQ_3GcYcLhfe5hyV9pXLhuHinBwIuahuK4QGPE5bs"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-orange-500">warning</span>
+</div>
+</div>
+<div class="text-sm">
+<p class="font-bold text-on-surface">David Chen</p>
+<p class="text-on-surface-variant">Flagged a deadline risk for booth construction</p>
+<span class="text-[10px] uppercase font-bold text-secondary-fixed-dim mt-1 block">4 hours ago</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-surface-container-low text-on-surface-variant font-bold text-sm rounded-lg hover:bg-surface-container-high transition-colors">
+                    View Full Audit Log
+                </button>
+</div>
+</div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform active:scale-95 group z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+<span class="absolute right-20 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-lg">Quick Event Creation</span>
+</button>
+</body></html>
