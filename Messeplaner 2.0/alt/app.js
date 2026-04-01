@@ -480,10 +480,10 @@ function renderMessenListe() {
                             <span class="px-3 py-1 rounded-full text-xs font-medium ${statusColors[messe.status] || 'bg-gray-100 text-gray-800'}">
                                 ${messe.status}
                             </span>
-                            <span class="px-3 py-1 rounded-full text-xs font-medium ${brancheColors[messe.branche] || 'bg-gray-100 text-gray-800'} cursor-pointer hover:opacity-75 transition-opacity" onclick="event.stopPropagation(); showKeywordPopup(this, 'branche', '${messe.branche.replace(/'/g, "\\'")}')">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium ${brancheColors[messe.branche] || 'bg-gray-100 text-gray-800'}">
                                 ${messe.branche}
                             </span>
-                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 cursor-pointer hover:opacity-75 transition-opacity" onclick="event.stopPropagation(); showKeywordPopup(this, 'teilnahme_art', '${messe.teilnahme_art}')">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
                                 ${messe.teilnahme_art}
                             </span>
                             ${isCHF ? '<span class="px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">CHF</span>' : ''}
@@ -905,10 +905,10 @@ function renderArchivListe() {
                             <span class="px-3 py-1 rounded-full text-xs font-medium ${statusColors[messe.status] || 'bg-gray-100 text-gray-800'}">
                                 ${messe.status}
                             </span>
-                            <span class="px-3 py-1 rounded-full text-xs font-medium ${brancheColors[messe.branche] || 'bg-gray-100 text-gray-800'} cursor-pointer hover:opacity-75 transition-opacity" onclick="event.stopPropagation(); showKeywordPopup(this, 'branche', '${messe.branche.replace(/'/g, "\\'")}')">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium ${brancheColors[messe.branche] || 'bg-gray-100 text-gray-800'}">
                                 ${messe.branche}
                             </span>
-                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 cursor-pointer hover:opacity-75 transition-opacity" onclick="event.stopPropagation(); showKeywordPopup(this, 'teilnahme_art', '${messe.teilnahme_art}')">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
                                 ${messe.teilnahme_art}
                             </span>
                             ${isCHF ? '<span class="px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">CHF</span>' : ''}
@@ -2098,87 +2098,10 @@ function showToast(message, type = 'info') {
     `;
     
     document.body.appendChild(toast);
-
+    
     setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(400px)';
         setTimeout(() => toast.remove(), 300);
     }, 3000);
-}
-
-// ========== KEYWORD POPUP ==========
-let keywordPopupCloseHandler = null;
-
-function showKeywordPopup(element, type, value) {
-    closeKeywordPopup();
-
-    const typeLabel = type === 'branche' ? 'Industrie' : 'Segment';
-    const currentCardId = element.closest('[data-id]') ? element.closest('[data-id]').dataset.id : null;
-
-    const allMessen = dataSdk.currentData || [];
-    const matches = allMessen.filter(m => m[type] === value && m.__backendId !== currentCardId);
-
-    const popup = document.createElement('div');
-    popup.id = 'keyword-popup';
-    popup.style.cssText = 'position:fixed;z-index:9999;background:white;border-radius:12px;box-shadow:0 20px 60px -10px rgba(26,28,29,0.18);padding:16px;width:280px;border:1px solid #f4f3f5;';
-
-    if (matches.length === 0) {
-        popup.innerHTML = `
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-                <span style="width:3px;height:20px;background:#da0023;border-radius:2px;flex-shrink:0;"></span>
-                <span style="font-weight:700;font-size:13px;color:#1a1c1d;">${typeLabel}: ${value}</span>
-            </div>
-            <p style="font-size:12px;color:#5d5e60;">Keine weiteren Einträge mit diesem ${typeLabel}.</p>
-        `;
-    } else {
-        const items = matches.map(m => `
-            <button onclick="closeKeywordPopup(); openDetailModal('${m.__backendId}')"
-                style="width:100%;text-align:left;padding:10px 12px;border-radius:8px;border:none;background:transparent;cursor:pointer;transition:background 0.15s;"
-                onmouseover="this.style.background='#f4f3f5'" onmouseout="this.style.background='transparent'">
-                <p style="font-weight:600;font-size:13px;color:#1a1c1d;margin:0 0 2px 0;">${m.messe_name}</p>
-                <p style="font-size:11px;color:#5d5e60;margin:0;">${m.standort}${m.land ? ', ' + m.land : ''} · ${m.datum_von ? m.datum_von : ''}</p>
-            </button>
-        `).join('');
-
-        popup.innerHTML = `
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
-                <div style="display:flex;align-items:center;gap:8px;">
-                    <span style="width:3px;height:20px;background:#da0023;border-radius:2px;flex-shrink:0;"></span>
-                    <span style="font-weight:700;font-size:13px;color:#1a1c1d;">${typeLabel}: ${value}</span>
-                </div>
-                <span style="font-size:11px;font-weight:600;color:#5d5e60;text-transform:uppercase;letter-spacing:0.05em;">${matches.length} Eintr${matches.length === 1 ? 'ag' : 'äge'}</span>
-            </div>
-            <p style="font-size:11px;color:#5d5e60;margin:0 0 10px 11px;">Weitere Positionierungen mit diesem ${typeLabel}:</p>
-            <div style="max-height:240px;overflow-y:auto;">${items}</div>
-        `;
-    }
-
-    document.body.appendChild(popup);
-
-    const rect = element.getBoundingClientRect();
-    let top = rect.bottom + 8;
-    let left = rect.left;
-
-    if (left + 280 > window.innerWidth - 8) left = window.innerWidth - 288;
-    if (left < 8) left = 8;
-    if (top + 300 > window.innerHeight) top = rect.top - 8 - popup.offsetHeight;
-
-    popup.style.top = top + 'px';
-    popup.style.left = left + 'px';
-
-    setTimeout(() => {
-        keywordPopupCloseHandler = (e) => {
-            if (!popup.contains(e.target)) closeKeywordPopup();
-        };
-        document.addEventListener('click', keywordPopupCloseHandler);
-    }, 0);
-}
-
-function closeKeywordPopup() {
-    const popup = document.getElementById('keyword-popup');
-    if (popup) popup.remove();
-    if (keywordPopupCloseHandler) {
-        document.removeEventListener('click', keywordPopupCloseHandler);
-        keywordPopupCloseHandler = null;
-    }
 }
